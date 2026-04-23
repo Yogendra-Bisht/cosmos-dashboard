@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { useMarsRoverPhotos } from '@/hooks/useNasaData';
 import { GlassCard } from '../ui/GlassCard';
 import { Camera, Calendar, Loader2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const rovers = ['Curiosity', 'Opportunity', 'Spirit'];
 
@@ -14,7 +14,7 @@ export function MarsRoverGallery() {
   const [date, setDate] = useState('2024-01-01'); // Using a date that likely has photos
   const { data, isLoading, isError } = useMarsRoverPhotos(rover.toLowerCase(), date);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -22,7 +22,7 @@ export function MarsRoverGallery() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20, scale: 0.95 },
     show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 100 } }
   };

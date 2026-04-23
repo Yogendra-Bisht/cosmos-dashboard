@@ -5,7 +5,7 @@ import { format, addDays } from 'date-fns';
 import { useNEOFeed } from '@/hooks/useNasaData';
 import { GlassCard } from '../ui/GlassCard';
 import { Activity, AlertTriangle, Loader2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export function NEOTracker() {
   const startDate = useMemo(() => format(new Date(), 'yyyy-MM-dd'), []);
@@ -21,7 +21,7 @@ export function NEOTracker() {
     );
   }, [data]);
 
-  const tableVariants = {
+  const tableVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -29,7 +29,7 @@ export function NEOTracker() {
     }
   };
 
-  const rowVariants = {
+  const rowVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 120 } }
   };

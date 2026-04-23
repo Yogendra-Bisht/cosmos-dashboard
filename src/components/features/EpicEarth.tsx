@@ -4,12 +4,12 @@ import { useEPICImages } from '@/hooks/useNasaData';
 import { nasaService } from '@/services/nasa';
 import { GlassCard } from '../ui/GlassCard';
 import { Globe, Loader2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export function EpicEarth() {
   const { data, isLoading, isError } = useEPICImages();
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -17,7 +17,7 @@ export function EpicEarth() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8, rotate: -5 },
     show: { opacity: 1, scale: 1, rotate: 0, transition: { type: "spring", stiffness: 80 } }
   };
